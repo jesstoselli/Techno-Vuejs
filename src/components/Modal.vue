@@ -169,4 +169,39 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .modal {
+    padding: 10px;
+
+    .modal_container {
+      gap: 20px;
+      background: #ffffff;
+      padding: 10px 0;
+
+      .modal_img {
+        grid-row: 2;
+
+        img {
+          width: 100%;
+          max-width: initial;
+        }
+      }
+
+      .modal_dados {
+        grid-column: 1;
+        padding: 10px;
+
+        .modal_btn {
+          margin-top: 20px;
+        }
+      }
+
+      .avaliacoes {
+        grid-column: 1;
+        padding: 10px;
+      }
+    }
+  }
+}
 </style>

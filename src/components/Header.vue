@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header @click="openCart">
     <img src="../assets/techno.svg" alt="Techno" class="logo" />
     <div class="carrinho_menu">{{ carrinhoTotal | currency }} |</div>
   </header>
@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  props: ["carrinhoTotal"]
+  props: ["carrinhoTotal"],
+  methods: {
+    openCart() {
+      this.$emit("openCart");
+    }
+  }
 };
 </script>
 

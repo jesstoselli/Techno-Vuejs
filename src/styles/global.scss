@@ -25,3 +25,9 @@ textarea {
 #app {
   padding: 0 80px;
 }
+
+@media screen and (max-width: 900px) {
+  #app {
+    padding: 0 10px;
+  }
+}

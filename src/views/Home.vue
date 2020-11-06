@@ -1,10 +1,11 @@
 <template>
   <div>
     <Tooltip :alerta="alertaAtivo" :mensagem="alertaMensagem" />
-    <Header :carrinhoTotal="sumCartUp" :carrinho="carrinho" />
+    <Header :carrinhoTotal="sumCartUp" :carrinho="carrinho" @openCart="openCart" />
     <Cart
       :carrinho="carrinho"
       :carrinhoAtivo="carrinhoAtivo"
+      :carrinhoTotal="sumCartUp"
       @removeFromCart="removeItemFromCart"
       @close="closeCart"
     />
@@ -46,7 +47,7 @@ export default {
       produtos: [],
       produto: false,
       carrinho: [],
-      carrinhoAtivo: true,
+      carrinhoAtivo: false,
       alertaAtivo: false,
       alertaMensagem: "Item adicionado."
     };
@@ -90,6 +91,9 @@ export default {
     },
     closeCart() {
       this.carrinhoAtivo = false;
+    },
+    openCart() {
+      this.carrinhoAtivo = true;
     },
     addItemToCart(produto) {
       if (produto.estoque === 0) {
@@ -174,6 +178,31 @@ export default {
       .produto_titulo {
         font-size: 3rem;
         line-height: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .produtos {
+    margin-top: 40px;
+
+    .produto {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 300px;
+      margin: 30px auto;
+
+      .produto_img {
+        max-width: 100%;
+      }
+
+      .produto_info {
+        padding: 20px;
+
+        .produto_titulo {
+          font-size: 1.5rem;
+        }
       }
     }
   }
